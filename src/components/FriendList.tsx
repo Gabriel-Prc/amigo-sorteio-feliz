@@ -33,21 +33,26 @@ const FriendList = ({
         className
       )}
     >
-      <ol className="list-decimal pl-8 space-y-2">
+      <div className="space-y-2 px-2">
         {friends.map((friend, index) => (
-          <motion.li
+          <motion.div
             key={`${friend}-${index}`}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.3 }}
             className={cn(
-              "text-lg",
-              selectedFriend === friend ? "text-[#4E54E9] font-medium" : ""
+              "py-2 px-4 rounded-lg bg-white shadow-sm border border-gray-100",
+              selectedFriend === friend ? "border-[#FF5722] bg-[#FFF8EE]" : ""
             )}
           >
             <div className="flex items-center justify-between">
-              <span>{friend}</span>
+              <span className={cn(
+                "text-lg",
+                selectedFriend === friend ? "text-[#FF5722] font-medium" : ""
+              )}>
+                {friend}
+              </span>
               
               {onRemoveFriend && !disabled && (
                 <button
@@ -61,9 +66,9 @@ const FriendList = ({
                 </button>
               )}
             </div>
-          </motion.li>
+          </motion.div>
         ))}
-      </ol>
+      </div>
     </div>
   );
 };

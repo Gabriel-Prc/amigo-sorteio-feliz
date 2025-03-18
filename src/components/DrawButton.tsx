@@ -18,7 +18,7 @@ const DrawButton = ({ onDraw, disabled = false, className }: DrawButtonProps) =>
       onClick={onDraw}
       disabled={disabled}
       className={cn(
-        "relative overflow-hidden h-14 px-8 shadow-md rounded-full bg-[#E86F43] hover:bg-[#E86F43]/90 text-white",
+        "relative overflow-hidden h-14 px-8 shadow-md rounded-full bg-[#FF5722] hover:bg-[#FF5722]/90 text-white",
         disabled ? "opacity-70" : "",
         className
       )}

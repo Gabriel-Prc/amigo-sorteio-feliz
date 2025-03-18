@@ -97,22 +97,22 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Blue header with illustration */}
-      <div className="bg-[#4E54E9] py-6 px-4 text-white flex flex-col md:flex-row justify-center items-center relative overflow-hidden">
+      {/* Dark header with illustration */}
+      <div className="bg-[#0F1427] py-6 px-4 text-white flex flex-col md:flex-row justify-center items-center relative overflow-hidden">
         <div className="text-center md:text-left md:mr-6 z-10">
           <h1 className="text-4xl md:text-5xl font-bold italic">Amigo Secreto</h1>
         </div>
         <img 
-          src="/lovable-uploads/2347dd06-c8d5-4247-8a0a-414918a3b16e.png" 
+          src="/lovable-uploads/7eb2d78e-0984-43ef-8277-8101ab1cf35f.png" 
           alt="Pessoa segurando presente" 
           className="h-32 mt-4 md:mt-0 md:h-40 object-contain z-10"
         />
       </div>
 
       {/* Light cream content area */}
-      <div className="flex-grow bg-[#FEF8E8] rounded-t-3xl -mt-4 px-4 py-8">
+      <div className="flex-grow bg-[#FFFDF2] rounded-t-3xl -mt-4 px-4 py-8">
         <div className="max-w-xl mx-auto">
-          <h2 className="text-2xl md:text-3xl text-center text-[#4E54E9] font-medium mb-8">
+          <h2 className="text-2xl md:text-3xl text-center text-[#FF5722] font-medium mb-8">
             Digite o nome dos seus amigos
           </h2>
           
@@ -139,7 +139,7 @@ const Index = () => {
 
                 {selectedFriend && !isDrawing && (
                   <div className="my-8 text-center">
-                    <p className="text-xl text-[#7ED321] font-medium">
+                    <p className="text-xl text-[#FF5722] font-medium">
                       O amigo sorteado é: <span className="font-bold">{selectedFriend}</span>
                     </p>
                   </div>
