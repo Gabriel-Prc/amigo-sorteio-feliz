@@ -48,7 +48,7 @@ const FriendList = ({
           >
             <div className="flex items-center justify-between">
               <span className={cn(
-                "text-lg",
+                "text-lg font-inter",
                 selectedFriend === friend ? "text-[#FF5722] font-medium" : ""
               )}>
                 {friend}

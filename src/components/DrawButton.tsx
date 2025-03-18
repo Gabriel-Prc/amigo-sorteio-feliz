@@ -28,7 +28,7 @@ const DrawButton = ({ onDraw, disabled = false, className }: DrawButtonProps) =>
     >
       <div className="flex items-center justify-center space-x-2">
         <Play className="w-5 h-5" />
-        <span className="font-medium">Sortear amigo</span>
+        <span className="font-medium font-inter">Sortear amigo</span>
       </div>
       
       {!disabled && (
