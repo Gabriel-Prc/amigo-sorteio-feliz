@@ -1,69 +1,66 @@
-# Welcome to your Lovable project
+Amigo Secreto 🎁
+Um aplicativo simples e interativo que permite adicionar amigos, exibir uma lista e sortear aleatoriamente o "Amigo Secreto". Ideal para usar em festas, encontros ou qualquer evento!
 
-## Project info
+📋 Funcionalidades
+Adicionar amigos: Insira o nome de cada participante no campo de entrada e adicione-os à lista.
 
-**URL**: https://lovable.dev/projects/67fe1bc4-1342-471b-8a79-3e1005a01c4a
+Exibir lista: A lista de participantes é exibida na tela para garantir transparência.
 
-## How can I edit this code?
+Sortear amigo: Um participante é escolhido aleatoriamente ao clicar no botão de sorteio.
 
-There are several ways of editing your application.
+Interface intuitiva: Design amigável e de fácil uso.
 
-**Use Lovable**
+🛠️ Tecnologias Utilizadas
+HTML5: Estrutura da aplicação.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/67fe1bc4-1342-471b-8a79-3e1005a01c4a) and start prompting.
+CSS3: Estilização responsiva e moderna.
 
-Changes made via Lovable will be committed automatically to this repo.
+JavaScript: Lógica e interatividade do aplicativo.
 
-**Use your preferred IDE**
+🎨 Layout
+O layout foi desenvolvido com:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Paleta de cores vibrante.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Botões interativos com feedback ao passar o mouse (hover).
 
-Follow these steps:
+Utilização das fontes Inter e Merriweather para melhorar a estética e legibilidade.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Captura de tela
+![image](https://github.com/user-attachments/assets/7d179423-c49c-44db-a772-8aea976d7cfb)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+📦 Como Usar
+Pré-requisitos:
+Um navegador moderno (como Google Chrome, Firefox ou Edge).
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Passo a Passo:
+Clone ou baixe este repositório:
 
-**Edit a file directly in GitHub**
+bash
+git clone https://github.com/Gabriel-Prc/amigo-sorteio-feliz
+Navegue até a pasta do projeto.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Abra o arquivo index.html em um navegador.
 
-**Use GitHub Codespaces**
+📄 Estrutura do Projeto
+AmigoSecreto/
+│
+├── index.html        # Estrutura HTML principal
+├── style.css         # Estilos da página
+├── app.js            # Lógica da aplicação em JavaScript
+├── assets/           # Imagens e ícones usados no projeto
+└── README.md         # Documentação do projeto
+🚀 Melhorias Futuras
+Permitir compartilhamento automático do resultado via redes sociais.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🖼️ Créditos
+Icones: Ícones utilizados no botão de sorteio e adição (ex. play_circle_outline.png).
 
-## What technologies are used for this project?
+Imagens: Arquivo amigo-secreto.png representando o tema.
 
-This project is built with .
+🧑‍💻 Desenvolvedor
+Gabriel: Projeto criado com dedicação e criatividade. 🚀
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/67fe1bc4-1342-471b-8a79-3e1005a01c4a) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+📜 Licença
+Este projeto está licenciado sob a Licença MIT. Sinta-se à vontade para usá-lo, modificá-lo e compartilhá-lo.
