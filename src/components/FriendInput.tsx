@@ -45,33 +45,24 @@ const FriendInput = ({ onAddFriend, disabled = false }: FriendInputProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full space-y-4">
-      <div className="flex flex-col space-y-1.5">
-        <label 
-          htmlFor="friend-name" 
-          className="text-sm font-medium text-muted-foreground"
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className="flex items-center">
+        <Input
+          id="friend-name"
+          ref={inputRef}
+          placeholder="Digite um nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          disabled={disabled}
+          className="h-12 rounded-full border-gray-300 flex-grow"
+        />
+        <Button 
+          type="submit" 
+          disabled={disabled || !name.trim()}
+          className="h-12 rounded-full px-6 ml-2 bg-gray-200 text-gray-700 hover:bg-gray-300"
         >
-          Nome do Amigo
-        </label>
-        <div className="flex w-full items-center space-x-2">
-          <Input
-            id="friend-name"
-            ref={inputRef}
-            placeholder="Digite o nome do amigo"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            disabled={disabled}
-            className="h-12 rounded-xl shadow-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-1"
-          />
-          <Button 
-            type="submit" 
-            disabled={disabled || !name.trim()}
-            className="h-12 rounded-xl shadow-sm transition-all duration-200 hover:shadow-md"
-          >
-            <PlusIcon className="w-5 h-5 mr-1" />
-            Adicionar
-          </Button>
-        </div>
+          Adicionar
+        </Button>
       </div>
     </form>
   );

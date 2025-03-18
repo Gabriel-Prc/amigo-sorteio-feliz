@@ -22,60 +22,48 @@ const FriendList = ({
   const listRef = useRef<HTMLDivElement>(null);
 
   if (friends.length === 0) {
-    return (
-      <div className={cn("text-center py-12", className)}>
-        <p className="text-muted-foreground">
-          Adicione alguns amigos para começar o sorteio.
-        </p>
-      </div>
-    );
+    return null;
   }
 
   return (
     <div 
       ref={listRef}
       className={cn(
-        "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto max-h-[400px] py-2 px-1",
+        "mt-6",
         className
       )}
     >
-      {friends.map((friend, index) => (
-        <motion.div
-          key={`${friend}-${index}`}
-          layout
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.3 }}
-          className={cn(
-            "friend-item",
-            selectedFriend === friend && "ring-2 ring-primary bg-primary/5"
-          )}
-        >
-          <div className="flex items-center justify-between">
-            <span 
-              className={cn(
-                "font-medium truncate",
-                selectedFriend === friend && "text-primary"
-              )}
-            >
-              {friend}
-            </span>
-            
-            {onRemoveFriend && !disabled && (
-              <button
-                type="button"
-                onClick={() => onRemoveFriend(index)}
-                className="ml-2 text-muted-foreground hover:text-destructive transition-colors duration-200 p-1 rounded-full hover:bg-destructive/10"
-                disabled={disabled}
-                aria-label={`Remover ${friend}`}
-              >
-                <BadgeX size={16} />
-              </button>
+      <ol className="list-decimal pl-8 space-y-2">
+        {friends.map((friend, index) => (
+          <motion.li
+            key={`${friend}-${index}`}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.3 }}
+            className={cn(
+              "text-lg",
+              selectedFriend === friend ? "text-[#4E54E9] font-medium" : ""
             )}
-          </div>
-        </motion.div>
-      ))}
+          >
+            <div className="flex items-center justify-between">
+              <span>{friend}</span>
+              
+              {onRemoveFriend && !disabled && (
+                <button
+                  type="button"
+                  onClick={() => onRemoveFriend(index)}
+                  className="ml-2 text-gray-400 hover:text-red-500 transition-colors duration-200"
+                  disabled={disabled}
+                  aria-label={`Remover ${friend}`}
+                >
+                  <BadgeX size={16} />
+                </button>
+              )}
+            </div>
+          </motion.li>
+        ))}
+      </ol>
     </div>
   );
 };

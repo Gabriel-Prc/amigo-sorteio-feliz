@@ -6,9 +6,6 @@ import FriendInput from "@/components/FriendInput";
 import FriendList from "@/components/FriendList";
 import DrawButton from "@/components/DrawButton";
 import AnimatedContainer from "@/components/AnimatedContainer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
 
 const Index = () => {
   const [friends, setFriends] = useState<string[]>([]);
@@ -99,92 +96,66 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start py-12 px-4 bg-gradient-to-b from-background to-secondary/30">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="text-center mb-8"
-      >
-        <Badge
-          variant="secondary"
-          className="mb-3 px-3 py-1 text-xs uppercase tracking-wider font-medium animate-fade-in"
-        >
-          Sorteio
-        </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text">
-          Amigo Secreto
-        </h1>
-        <p className="mt-3 text-muted-foreground max-w-md">
-          Adicione nomes e sorteie aleatoriamente um amigo secreto.
-        </p>
-      </motion.div>
+    <div className="min-h-screen flex flex-col">
+      {/* Blue header with illustration */}
+      <div className="bg-[#4E54E9] py-6 px-4 text-white flex flex-col md:flex-row justify-center items-center relative overflow-hidden">
+        <div className="text-center md:text-left md:mr-6 z-10">
+          <h1 className="text-4xl md:text-5xl font-bold italic">Amigo Secreto</h1>
+        </div>
+        <img 
+          src="/lovable-uploads/2347dd06-c8d5-4247-8a0a-414918a3b16e.png" 
+          alt="Pessoa segurando presente" 
+          className="h-32 mt-4 md:mt-0 md:h-40 object-contain z-10"
+        />
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        className="w-full max-w-4xl mx-auto"
-      >
-        <Card className="bg-card/80 backdrop-blur-sm border shadow-md">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-xl font-medium">
-              {friends.length > 0 
-                ? `Lista de Amigos (${friends.length})`
-                : "Adicione Amigos para Sortear"}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <FriendInput 
-              onAddFriend={addFriend} 
-              disabled={isDrawing} 
-            />
-            
-            <AnimatePresence>
-              {friends.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Separator className="my-4" />
-                  
-                  <FriendList 
-                    friends={friends}
-                    onRemoveFriend={removeFriend}
-                    selectedFriend={selectedFriend}
-                    disabled={isDrawing}
-                    className="mt-4"
-                  />
+      {/* Light cream content area */}
+      <div className="flex-grow bg-[#FEF8E8] rounded-t-3xl -mt-4 px-4 py-8">
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-2xl md:text-3xl text-center text-[#4E54E9] font-medium mb-8">
+            Digite o nome dos seus amigos
+          </h2>
+          
+          <FriendInput 
+            onAddFriend={addFriend} 
+            disabled={isDrawing} 
+          />
+          
+          <AnimatePresence>
+            {friends.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-8"
+              >
+                <FriendList 
+                  friends={friends}
+                  onRemoveFriend={removeFriend}
+                  selectedFriend={selectedFriend}
+                  disabled={isDrawing}
+                />
 
-                  <div className="mt-6 flex justify-center">
-                    <DrawButton 
-                      onDraw={drawFriend}
-                      disabled={isDrawing || friends.length < 2}
-                    />
+                {selectedFriend && !isDrawing && (
+                  <div className="my-8 text-center">
+                    <p className="text-xl text-[#7ED321] font-medium">
+                      O amigo sorteado é: <span className="font-bold">{selectedFriend}</span>
+                    </p>
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-            
-            <AnimatedContainer 
-              show={!!selectedFriend && !isDrawing}
-              animateIn="animate-bounce-in"
-              className="mt-8"
-            >
-              <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 text-center">
-                <span className="text-sm font-medium text-primary/80 block mb-1">
-                  Amigo Sorteado
-                </span>
-                <h3 className="text-2xl font-bold text-primary">
-                  {selectedFriend}
-                </h3>
-              </div>
-            </AnimatedContainer>
-          </CardContent>
-        </Card>
-      </motion.div>
+                )}
+
+                <div className="mt-8 flex justify-center">
+                  <DrawButton 
+                    onDraw={drawFriend}
+                    disabled={isDrawing || friends.length < 2}
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 };
